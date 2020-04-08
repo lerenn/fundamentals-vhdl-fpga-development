@@ -35,14 +35,17 @@ entity BUTTON_LED is
     Generic(
         NUM_BUTTONS : integer := 4);
     Port(
-        Led_Out     : out
-        Button_In   : in
-        Enable      : in);
+        Led_Out     : out std_logic_vector(NUM_BUTTONS - 1 downto 0);
+        Button_In   : in std_logic_vector(NUM_BUTTONS - 1 downto 0);
+        Enable      : in std_logic);
 end BUTTON_LED;
 
 architecture Behavioral of BUTTON_LED is
 
 begin
 
+    -- Set output of the LED's
+    Led_Out <= Button_In when Enable = '0' else (others => '0');
+    
 
 end Behavioral;
