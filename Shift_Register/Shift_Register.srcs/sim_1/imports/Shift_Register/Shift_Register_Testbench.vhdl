@@ -3,7 +3,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.ALL;
 
-entity test of test_Shift_Reg is 
+entity test_Shift_Reg is 
 end;
 
 architecture test of test_Shift_Reg is 
@@ -26,7 +26,7 @@ signal A, B, C, D   : std_logic;
 
 begin 
     dev_to_test: Shift_Reg
-        port_map(A, B, C, D, data_in, reset, clk);
+        port map(A, B, C, D, data_in, reset, clk);
 
     clk_stimulus: process
     begin
@@ -37,6 +37,6 @@ begin
     data_stimulus: process 
     begin 
         wait for 40 ns;
-        data_in <= no data_in;
+        data_in <= not data_in;
     end process data_stimulus;
 end test;

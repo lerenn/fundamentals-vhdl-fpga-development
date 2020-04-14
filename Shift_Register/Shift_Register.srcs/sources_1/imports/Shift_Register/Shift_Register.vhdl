@@ -39,7 +39,7 @@ begin
     reg_process: process(clk)
     begin 
         if(rising_edge(clk)) then 
-            if (reset = '1') then
+            if(reset = '1') then
                 A_reg <= '0';
                 B_reg <= '0';
                 C_reg <= '0';
@@ -51,5 +51,5 @@ begin
                 D_reg <= C_reg;
             end if;
         end if;
-    end reg_process;
+    end process reg_process;
 end behavior;
