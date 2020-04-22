@@ -47,10 +47,10 @@ end BLINKY_LED;
 architecture Behavioral of BLINKY_LED is
 
 constant MAX_VAL    : integer := CLK_RATE / BLINK_RATE;
-constant BIT_DEPTH  : integer := integer(ceil(log2(real(MAX_VALUE))));
+constant BIT_DEPTH 	: integer := integer(ceil(log2(real(MAX_VAL))));
 
 signal count_reg    : unsigned(BIT_DEPTH - 1 downto 0) := (others => '0');
-signal led_reg      : std_logic_vector(NUM_LEDS - 1 downto 0) := "0000" ;
+signal led_reg      : std_logic_vector(NUM_LEDS - 1 downto 0) := (others => '0');
 
 begin
     Led_Out <= led_reg;
